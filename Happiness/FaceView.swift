@@ -8,10 +8,20 @@
 
 import UIKit
 
+protocol FaceViewDataSource: class {
+    func smilenessForFaceView(sender: FaceView) -> Double?
+}
+
+@IBDesignable
 class FaceView: UIView {
     
+    @IBInspectable
     var lineWidth: CGFloat = 3 { didSet { setNeedsDisplay() } }
+    
+    @IBInspectable
     var color: UIColor = UIColor.blueColor() { didSet { setNeedsDisplay() } }
+
+    @IBInspectable
     var scale: CGFloat = 0.9 { didSet { setNeedsDisplay() } }
 
     var faceCenter: CGPoint {
@@ -21,6 +31,8 @@ class FaceView: UIView {
     var faceRadius: CGFloat {
         get { return min(bounds.size.width, bounds.size.height) / 2 * scale }
     }
+    
+    weak var dataSource: FaceViewDataSource?
     
     private struct Scaling {
         static let FaceRadiusToEyeRadiusRatio: CGFloat = 10
@@ -79,9 +91,11 @@ class FaceView: UIView {
         color.set()
         facePath.stroke()
         
+        let smileness = dataSource?.smilenessForFaceView(self) ?? 0.0
+        
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
-        bezierPathForSmile(1).stroke()
+        bezierPathForSmile(smileness).stroke()
     }
 
 }

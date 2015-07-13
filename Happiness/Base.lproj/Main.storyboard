@@ -20,6 +20,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scale">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <animations/>
@@ -31,6 +42,9 @@
                             <constraint firstItem="esK-CH-DGj" firstAttribute="leading" secondItem="2qV-jZ-6QS" secondAttribute="leading" id="cba-NG-b5Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="esK-CH-DGj" id="4fd-Bw-xMy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aux-nT-j6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
