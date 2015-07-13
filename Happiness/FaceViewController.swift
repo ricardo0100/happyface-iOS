@@ -17,6 +17,25 @@ class FaceViewController: UIViewController, FaceViewDataSource
         }
     }
     
+    private struct Constants {
+        static let HapinessGestureScale: CGFloat = 4.0
+    }
+    
+    @IBAction func changeHapiness(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .Ended: fallthrough
+        case .Changed:
+            let translation = gesture.translationInView(faceView)
+            let hapinessChange = -Int(translation.y / Constants.HapinessGestureScale)
+            if hapinessChange != 0 {
+                hapiness += hapinessChange
+                gesture.setTranslation(CGPointZero, inView: faceView)
+            }
+        default: break
+            
+        }
+    }
+    
     var hapiness: Int = 100 {
         didSet {
             hapiness = min(max(hapiness, 0), 100)
