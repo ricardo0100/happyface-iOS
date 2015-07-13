@@ -56,11 +56,11 @@
 		8C81186E1B541716002EA0DF /* Happiness */ = {
 			isa = PBXGroup;
 			children = (
-				8C81186F1B541716002EA0DF /* AppDelegate.swift */,
 				8C8118731B541716002EA0DF /* Main.storyboard */,
 				8C8118811B54177E002EA0DF /* FaceViewController.swift */,
 				8C8118831B5417D8002EA0DF /* FaceView.swift */,
 				8C8118761B541716002EA0DF /* Assets.xcassets */,
+				8C81186F1B541716002EA0DF /* AppDelegate.swift */,
 				8C8118781B541716002EA0DF /* LaunchScreen.storyboard */,
 				8C81187B1B541716002EA0DF /* Info.plist */,
 			);
@@ -289,6 +289,7 @@
 				8C8118801B541716002EA0DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
