@@ -13,10 +13,11 @@ class FaceViewController: UIViewController, FaceViewDataSource
     @IBOutlet weak var faceView: FaceView! {
         didSet {
             faceView.dataSource = self
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: "scale:"))
         }
     }
     
-    var hapiness: Int = 50 {
+    var hapiness: Int = 100 {
         didSet {
             hapiness = min(max(hapiness, 0), 100)
             print("hapiness: \(hapiness)")
@@ -25,7 +26,7 @@ class FaceViewController: UIViewController, FaceViewDataSource
     }
     
     func updateUI() {
-        
+        faceView.setNeedsDisplay()
     }
     
     func smilenessForFaceView(sender: FaceView) -> Double? {
